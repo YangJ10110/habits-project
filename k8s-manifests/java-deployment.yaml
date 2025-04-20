@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: habits-tracker
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: habits-tracker
+  template:
+    metadata:
+      labels:
+        app: habits-tracker
+    spec:
+      containers:
+        - name: habits-tracker
+          image: jerds/habits-tracker:latest 
+          ports:
+            - containerPort: 8080
+
